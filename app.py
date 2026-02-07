@@ -3653,13 +3653,7 @@ def render_pantalla_8_ia():
         st.warning("Tipo de archivo no soportado. Esta demo analiza DOCX y PDF (con OCR).")
         return
 
-    
-    # Detección de idioma y alerta si no es español
-    lang = _detect_language(text)
-    if lang != "es":
-        st.warning(f"Idioma detectado: {lang}. El motor espera principalmente documentos en español.")
-        if not st.checkbox("Continuar de todos modos (texto no en español)", value=False):
-            return
+
     # --- FIN MODIFICACIÓN: extracción y OCR ---
 
     # ANALISIS DE IA Y GENERACION DE CHECKLISTS QA/QC
