@@ -1,5 +1,12 @@
-tesseract-ocr
-tesseract-ocr-spa
-libpoppler-dev
-libpoppler-cpp-dev
-poppler-utils
+streamlit
+pandas
+numpy
+openpyxl
+matplotlib
+groq
+pdf2image
+python-docx
+pymupdf
+langdetect
+rapidocr-onnxruntime
+opencv-python-headless
