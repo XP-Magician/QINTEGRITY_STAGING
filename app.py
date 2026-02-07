@@ -23,7 +23,7 @@ import streamlit as st
 from pathlib import Path
 from api_ia import ApiIa
 import fitz  # PyMuPDF
-from cv2 import cv2
+import cv2
 from rapidocr_onnxruntime import RapidOCR
 
 ################################# OPTIMIZACIONES MOTOR OCR ################################
