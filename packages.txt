@@ -1,12 +1,2 @@
-streamlit
-pandas
-numpy
-openpyxl
-matplotlib
-groq
-pdf2image
-python-docx
-pymupdf
-langdetect
-rapidocr-onnxruntime
-opencv-python-headless
+libglib2.0-0
+libgomp1
