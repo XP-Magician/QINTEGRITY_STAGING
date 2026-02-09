@@ -113,10 +113,26 @@ class ApiIa:
         except Exception as e:
             return (f"❌ Error inesperado: {e}")
 
-    def generate_checkboxes(self,ia_resume):
-        chk_pattern = r"(?sm)\[(.*?)\]"
-        return list(filter(None,re.search(chk_pattern,ia_resume).group(1).split("~~")))
+    def generate_checkboxes(self, ia_resume: str) -> List[str]:
+        if not ia_resume:
+            return ["No se pudo generar el resumen IA"]
 
-    def clean_checkboxes(self,ia_resume:str):
+        chk_pattern = r"(?sm)\[(.*?)\]"  # contenido dentro de [ ... ] (multiline)
+        m = re.search(chk_pattern, ia_resume)
+        if not m:
+            return ["No se encontraron checkboxes"]
+
+        raw = (m.group(1) or "").strip()
+        if not raw:
+            return ["No se encontraron checkboxes"]
+
+        items = [x.strip() for x in raw.split("~~")]
+        return [x for x in items if x]  # sin vacíos
+
+    def clean_checkboxes(self, ia_resume: str) -> str:
+        if not ia_resume:
+            return "No se pudo generar el resumen IA"
+
         chk_pattern = r"(?sm)\[(.*?)\]"
-        return re.sub(chk_pattern,"".strip(),ia_resume)
+        # Elimina el bloque [ ... ] completo (y lo que contenga)
+        return re.sub(chk_pattern, "", ia_resume).strip()
