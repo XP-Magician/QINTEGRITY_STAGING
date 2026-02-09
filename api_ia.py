@@ -113,7 +113,7 @@ class ApiIa:
         except Exception as e:
             return (f"❌ Error inesperado: {e}")
 
-    def generate_checkboxes(self, ia_resume: str) -> List[str]:
+    def generate_checkboxes(self, ia_resume: str) -> list[str]:
         if not ia_resume:
             return ["No se pudo generar el resumen IA"]
 
